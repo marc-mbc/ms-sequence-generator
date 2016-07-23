@@ -45,19 +45,19 @@ docker run -d --name ms-sequence-generator \
 
 The following request creates a new sequence called *Hotel* that will start at *1001*.
 
-    curl -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"initialValue":1001}' http://docker-server:8080/api/sequence/Hotel
+    curl -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d '{"initialValue":1001}' http://localhost:8082/api/sequence/Hotel
 
 # Get next number
 
 The following three requests returns number *01001*, *01002* and *01003*.
 
-    curl http://localhost:8082/api/sequence/Hotel/next
+    curl http://localhost:8082/sequence/Hotel/next
     { "number": "01001" }
 
-    curl http://localhost:8082/api/sequence/Hotel/next
+    curl http://localhost:8082/sequence/Hotel/next
     { "number": "01002" }
 
-    curl http://localhost:8082/api/sequence/Hotel/next
+    curl http://localhost:8082/sequence/Hotel/next
     { "number": "01003" }
 
 
@@ -65,5 +65,5 @@ The following three requests returns number *01001*, *01002* and *01003*.
 
 The following request returns the status of the *Hotel* sequence without increasing the number.
 
-    curl http://localhost:8082/api/sequence/Hotel
+    curl http://localhost:8082/sequence/Hotel
     { "number": "01003" }
